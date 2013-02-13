@@ -52,7 +52,8 @@ class DrawColorTrack(QtGui.QImage):
         #segment the image based on hue value thresholding. 
         #the first value of each tuple is a hue value in the range 0-180
         thresholded_frame =  cv.CreateImage(cv.GetSize(hsv_frame), 8, 1)
-        cv.InRangeS(hsv_frame, ((thresh_hue-10), 20, 20), (thresh_hue+10, 235, 235), thresholded_frame)
+        cv.InRangeS(hsv_frame, ((thresh_hue-10), 20, 20),
+                    (thresh_hue+10, 235, 235), thresholded_frame)
         frame_mat=cv.GetMat(thresholded_frame)
 
         #determine the objects moments and size
